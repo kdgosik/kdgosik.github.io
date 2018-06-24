@@ -1,0 +1,67 @@
+---
+title: "Ideas"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Blockchain
+
+## OSO
+[Reference](oso.network)
+
+## IPFS
+[Reference](ipfs.io)
+
+```{bash}
+## this gives an IPFS hash of the previous version of my github.io site
+ipfs add -r .
+```
+
+### Graphql
+[Reference](https://graphql.org/)
+
+### The Graph.com
+[Reference](https://thegraph.com/)
+
+## Blockstacks
+[Reference](blockstacks.org)
+
+
+## Essentia
+[Reference](https://essentia.one/)
+
+
+
+
+
+# Science
+
+
+## Gauge Theory
+
+ Gene expression and field theory 
+ 
+
+### Rieman Geometry and Curvature
+  * [Manifolds](http://pi.math.cornell.edu/~sjamaar/manifolds/manifold.pdf)
+  * [Riemann Materials](http://www.matematik.lu.se/matematiklu/personal/sigma/Riemann.pdf)
+  * [Riemann Geometry Examples](http://www2.math.uu.se/~svante/papers/sjN15.pdf)
+
+
+## Path Integrals evolutionary QTL?
+
+
+## Heisenberg Uncertaiy Perterb-seq
+[Reference](https://www.youtube.com/watch?v=ZcpwnozMh2U&t=25m)
+
+Red and Green boxes as SNP
+
+
+
+

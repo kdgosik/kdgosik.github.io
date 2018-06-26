@@ -1,0 +1,44 @@
+---
+title: "Courses"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Courses
+
+
+## Compressed Sensing
+[Reference](http://lecueguillaume.github.io/2015/10/08/compressed_sensing_course/)
+
+
+## Reinforcement Learning
+[Reference](http://www.argmin.net/2018/05/11/outsider-rl/)
+
+
+
+## Variational Bayes
+[Reference](https://www.coursera.org/learn/bayesian-methods-in-machine-learning/home/welcome)
+
+## Convex Optimization
+[Rerference](http://www.cvxpy.org/short_course/index.html)
+
+## Blockchain for Business
+[Rerference](https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS171x+3T2017/course/)
+
+## Computational Geometry
+[Rerference](https://courses.edx.org/courses/course-v1:TsinghuaX+70240183x+1T2017/course/cour)
+
+## Riemann Geometry
+[Rerference](https://www.youtube.com/watch?v=ImIQP9szMGs)
+
+## Docker Tutorials
+[Reference](https://www.youtube.com/watch?v=PbiYll21Jxg&list=PLZdsdjcJ44WU_cY2Y1LFLnmsSjFD5BZLZ)
+
+
+## Interactive Python
+  * [Part 1](https://www.coursera.org/learn/interactive-python-1/home/welcome)
+  * [Part 2](https://www.coursera.org/learn/interactive-python-2)

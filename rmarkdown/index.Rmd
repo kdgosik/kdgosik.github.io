@@ -1,0 +1,8 @@
+---
+title: "index"
+output: html_document
+---
+
+## Intro
+
+Quick and easy static website build using Rmarkdown to help explore the log history files.

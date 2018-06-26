@@ -1,0 +1,14 @@
+---
+name: Reproducible Workflows
+output_dir: ../docs
+navbar:
+  title: My Site
+  left:
+  - text: Home
+    icon: fa-home
+    href: index.html
+  - text: Monero Miner
+    href: monero_miner.html
+  - text: Tetris
+    href: tetris.html
+---

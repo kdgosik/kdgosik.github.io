@@ -23,6 +23,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ipfs add -r .
 ```
 
+### Dapp University Tutorial
+
+https://www.youtube.com/watch?v=ADoRVVOSpI8&list=PLS5SEs8ZftgWggD3tKfgwsIPXuIhorXZk
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ADoRVVOSpI8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ### Graphql
 [Reference](https://graphql.org/)
 
@@ -32,13 +38,17 @@ ipfs add -r .
 ## Blockstacks
 [Reference](blockstacks.org)
 
+  * [Tutorial 1](https://www.youtube.com/watch?v=oyvg-h0obFw&t=5s)
+  * [Tutorial 2](https://www.youtube.com/watch?v=FP_kqWGzVWk&t=0s&index=137&list=WL)
 
 ## Essentia
 [Reference](https://essentia.one/)
 
+## Interledger
+[Reference](https://interledger.org/)
 
-
-
+## Hyperledger
+[edx](https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS171x+3T2017/course/)
 
 # Science
 
@@ -58,8 +68,8 @@ ipfs add -r .
 
 
 ## Heisenberg Uncertaiy Perterb-seq
-[Reference](https://www.youtube.com/watch?v=ZcpwnozMh2U&t=25m)
-[Wiki](https://en.wikipedia.org/wiki/Uncertainty_principle)
+  * [Reference](https://www.youtube.com/watch?v=ZcpwnozMh2U&t=25m)
+  * [Wiki](https://en.wikipedia.org/wiki/Uncertainty_principle)
 
 Red and Green boxes as SNP
 

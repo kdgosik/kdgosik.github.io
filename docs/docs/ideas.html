@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Ideas</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Site</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="monero_miner_website.html">Monero Miner</a>
+</li>
+<li>
+  <a href="tetris.html">Tetris</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Ideas</h1>
+
+</div>
+
+
+<div id="blockchain" class="section level1">
+<h1>Blockchain</h1>
+<div id="oso" class="section level2">
+<h2>OSO</h2>
+<p><a href="oso.network">Reference</a></p>
+</div>
+<div id="ipfs" class="section level2">
+<h2>IPFS</h2>
+<p><a href="ipfs.io">Reference</a></p>
+<pre class="bash"><code>## this gives an IPFS hash of the previous version of my github.io site
+ipfs add -r .</code></pre>
+<pre><code>## 
+ 1.15 KB / 4.70 MB [&gt;-------------------------------------------------------------------------------------]   0.02% 1s[2K
+added QmfZQt7sCpTjYkGfUg6Jk3iPc6V4PmhYstYS2zjaVQjNHF rmarkdown/Courses.Rmd
+## 
+ 1.40 KB / 4.70 MB [&gt;------------------------------------------------------------------------------------]   0.03% 55s[2K
+added QmVQpPbtN5FAewFK9VaFMmtJajfNSz2s2hb3QK4A9AEwbb rmarkdown/_site.yml
+## 
+ 8.11 KB / 4.70 MB [&gt;------------------------------------------------------------------------------------]   0.17% 14s[2K
+added QmSf7NGpi4VjAFhcGvpJYiSdHmEGXXs8ggJitr3F14kbUT rmarkdown/docs/Courses.html
+## 
+ 33.63 KB / 4.70 MB [&gt;------------------------------------------------------------------------------------]   0.70% 4s[2K
+added QmenL9U1NunfnRdw1wzPBMFh3ebBJe2U9VkpFPaHaL96nf rmarkdown/docs/site_libs/bootstrap-3.3.5/css/bootstrap-theme.css
+## 
+ 80.24 KB / 4.70 MB [=&gt;-----------------------------------------------------------------------------------]   1.67% 2s[2K
+added QmUH1xboJrnPrJNQfvNnmDyTBaJQNGh6q38MmiVeBiwNDk rmarkdown/docs/site_libs/bootstrap-3.3.5/css/bootstrap-theme.css.map
+## 
+ 103.05 KB / 4.70 MB [=&gt;----------------------------------------------------------------------------------]   2.14% 2s[2K
+added QmZAxy7RrejAz28EZw4mVD6i3VMkPqpHyJuoCxD41GeeFs rmarkdown/docs/site_libs/bootstrap-3.3.5/css/bootstrap-theme.min.css
+## 
+ 246.90 KB / 4.70 MB [====&gt;-------------------------------------------------------------------------------]   5.13% 1s[2K
+added Qmb3ToJMWe3dhBS8pTbVQpg1ZgFQUkaJbH9a8vufTwYkq1 rmarkdown/docs/site_libs/bootstrap-3.3.5/css/bootstrap.css
+## 
+ 502.90 KB / 4.70 MB [========&gt;---------------------------------------------------------------------------]  10.45% 0s
+ 628.12 KB / 4.70 MB [==========&gt;-------------------------------------------------------------------------]  13.05% 0s[2K
+added QmWWzDFFdWsXx54t3y679RGWkzuhXhBvvBfVUSnEvPBeBj rmarkdown/docs/site_libs/bootstrap-3.3.5/css/bootstrap.css.map
+## 
+ 747.68 KB / 4.70 MB [=============&gt;----------------------------------------------------------------------]  15.53% 0s[2K
+added QmPLbuAKj3ohgrVj5bPK3y2ToV8MWfax4pm55NEaF9nzDz rmarkdown/docs/site_libs/bootstrap-3.3.5/css/bootstrap.min.css
+## 
+ 872.87 KB / 4.70 MB [===============&gt;--------------------------------------------------------------------]  18.13% 0s[2K
+added QmcRq839j18pUrVuxurUcE3Ap5MAadLJeMfZECevy5NdQZ rmarkdown/docs/site_libs/bootstrap-3.3.5/css/cerulean.min.css
+## 
+ 995.85 KB / 4.70 MB [=================&gt;------------------------------------------------------------------]  20.69% 0s[2K
+added QmVqZarF9g8itu6iT7YKcY4mjo3Y5fUMKS9k9VbGun32nr rmarkdown/docs/site_libs/bootstrap-3.3.5/css/cosmo.min.css
+## 
+ 1.09 MB / 4.70 MB [====================&gt;-----------------------------------------------------------------]  23.28% 0s[2K
+added QmViXQLtM79gXrAmkCYtnRo9oNZ1rrZnwHiP7Ywx3rNafi rmarkdown/docs/site_libs/bootstrap-3.3.5/css/flatly.min.css
+## 
+ 1.17 MB / 4.70 MB [=====================&gt;----------------------------------------------------------------]  24.94% 0s[2K
+added QmRi9j1MFaztRCjBTi9eifWZYYyiYVTg3qpRFTYXM8bPuT rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/Lato.ttf
+## 
+ 1.25 MB / 4.70 MB [======================&gt;---------------------------------------------------------------]  26.61% 0s[2K
+added Qmb4W4uEJQzaTLWTszyX7bY5Sffs1v6PTbGKpQE4r1v3X3 rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/LatoBold.ttf
+## 
+ 1.33 MB / 4.70 MB [========================&gt;-------------------------------------------------------------]  28.26% 0s[2K
+added QmQb8XMwzfcV1vpx1djicSxD8ouWFGRqB1h4wCHu7d8BdR rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/LatoItalic.ttf
+## 
+ 1.36 MB / 4.70 MB [========================&gt;-------------------------------------------------------------]  28.84% 0s[2K
+added Qma9VNv4Fo3RENdsAQGnFZ8JKVq5yy6T7cEHqDoMaqKfSq rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/NewsCycle.ttf
+## 
+ 1.38 MB / 4.70 MB [=========================&gt;------------------------------------------------------------]  29.42% 0s[2K
+added Qme1rwMz5R1efvTfSYNhhwbYNSHmgiapAp35L89srvMTdx rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/NewsCycleBold.ttf
+## 
+ 1.42 MB / 4.70 MB [=========================&gt;------------------------------------------------------------]  30.12% 0s[2K
+added QmVfMDkxYyruGSedDg5TSyaSv8s5Y7foeSpLx49MHPsdJW rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSans.ttf
+## 
+ 1.45 MB / 4.70 MB [==========================&gt;-----------------------------------------------------------]  30.84% 0s[2K
+added QmUcVsnJdiCKRmGqDYpzEHoANdshuKSrgV9eoH3sv4XbBn rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansBold.ttf
+## 
+ 1.48 MB / 4.70 MB [===========================&gt;----------------------------------------------------------]  31.51% 0s[2K
+added QmbxQRvJUynJukoPzzcMCEqmpjk89b8gWLip5tATggB1Xm rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansBoldItalic.ttf
+## 
+ 1.51 MB / 4.70 MB [===========================&gt;----------------------------------------------------------]  32.18% 0s[2K
+added QmZyqrx2SziZBvQKVVDrzVRtumSdPm4jwLSH7Uq1BCLizi rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansItalic.ttf
+## 
+ 1.55 MB / 4.70 MB [============================&gt;---------------------------------------------------------]  32.90% 0s[2K
+added QmVg81Ju4eeKJxneJdScQ1LbraQ1mXiDD9pGBqeihyC1wn rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansLight.ttf
+## 
+ 1.58 MB / 4.70 MB [============================&gt;---------------------------------------------------------]  33.56% 0s[2K
+added QmXbycN51KFprcn2fWmoWM7QAP9wcNFqwKrpe8QmyFr2Tw rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansLightItalic.ttf
+## 
+ 1.64 MB / 4.70 MB [=============================&gt;--------------------------------------------------------]  34.85% 0s[2K
+added QmTbZcFhRiC9v3mGKrU4UBcXM7qbiZRNaGQgAWQjGRxmCz rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/Raleway.ttf
+## 
+ 1.70 MB / 4.70 MB [===============================&gt;------------------------------------------------------]  36.11% 0s[2K
+added QmTFyBRbKEPqmT6JJeNavxRMvyUqae1ArLiBsKuE3mXZ7C rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/RalewayBold.ttf
+## 
+ 1.73 MB / 4.70 MB [===============================&gt;------------------------------------------------------]  36.78% 0s[2K
+added QmYhAyeiBiBMayrzaHfYnKzYNeJ9b5pTa98nrk6BeZ6MfV rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/Roboto.ttf
+## 
+ 1.76 MB / 4.70 MB [================================&gt;-----------------------------------------------------]  37.44% 0s[2K
+added QmQxScnWUZ6A1qZA8ZbrmQuXmbkfddXiRgVeAGfVKmgrJo rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/RobotoBold.ttf
+## 
+ 1.79 MB / 4.70 MB [================================&gt;-----------------------------------------------------]  38.10% 0s[2K
+added Qme3ziiL44ycx1p9mGN1WUYMCb2XUakdmwM9gAedy539u8 rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/RobotoLight.ttf
+## 
+ 1.82 MB / 4.70 MB [=================================&gt;----------------------------------------------------]  38.76% 0s[2K
+added QmYJogbPA7ShDifhoBDELu9715Qy7zqi8BhiG2oJViYAVh rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/RobotoMedium.ttf
+## 
+ 1.86 MB / 4.70 MB [=================================&gt;----------------------------------------------------]  39.47% 0s[2K
+added QmSpRkv9SboFC2v2ksE7zxTNhGXjLF8GtqSeyM7R9MG9yz rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/SourceSansPro.ttf
+## 
+ 1.89 MB / 4.70 MB [==================================&gt;---------------------------------------------------]  40.18% 0s[2K
+added QmWaVEYMJ1ajSn6Rv9VDmkBdqhtLJMAwdiHyeYNU4Fp76U rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/SourceSansProBold.ttf
+## 
+ 1.92 MB / 4.70 MB [===================================&gt;--------------------------------------------------]  40.87% 0s[2K
+added Qma5xnbZ2vfXvtCbTwTLVAtjZ7WaJ2FBZ2H7sBuDifRZJj rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/SourceSansProItalic.ttf
+## 
+ 1.95 MB / 4.70 MB [===================================&gt;--------------------------------------------------]  41.58% 0s[2K
+added QmYVWsykHQApRS1FJAgKbN4PjiAgEr2XDq4x4Lga1r6tXz rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/SourceSansProLight.ttf
+## 
+ 2.03 MB / 4.70 MB [=====================================&gt;------------------------------------------------]  43.08% 0s[2K
+added QmSY3WYQ3VonBobicbpxNxpzPhoYnsqJKkGw5E2FmtH9bJ rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts/Ubuntu.ttf
+## 
+ 2.14 MB / 4.70 MB [=======================================&gt;----------------------------------------------]  45.61% 0s[2K
+added QmSApxResDP3thpr7gq2YxszPobVzn4SFEQXJMf2ukPzvU rmarkdown/docs/site_libs/bootstrap-3.3.5/css/journal.min.css
+## 
+ 2.27 MB / 4.70 MB [=========================================&gt;--------------------------------------------]  48.27% 0s[2K
+added QmZg7TZPEL41rrzEpWqGwBwtvuSn5Ac16TW9c93Mp4cjUE rmarkdown/docs/site_libs/bootstrap-3.3.5/css/lumen.min.css
+## 
+ 2.40 MB / 4.70 MB [===========================================&gt;------------------------------------------]  51.14% 0s[2K
+added QmWP9mJpYj5VKqHDzLERbee3ynnMPoRtrUWx31SaWr3A2g rmarkdown/docs/site_libs/bootstrap-3.3.5/css/paper.min.css
+## 
+ 2.52 MB / 4.70 MB [==============================================&gt;---------------------------------------]  53.67% 0s[2K
+added QmZb9jUBkvBj6jP4BY5A8XpJnZAGqd1d4pv8cKNNpF1CDy rmarkdown/docs/site_libs/bootstrap-3.3.5/css/readable.min.css
+## 
+ 2.64 MB / 4.70 MB [================================================&gt;-------------------------------------]  56.21% 0s[2K
+added QmXbRTH9ts4dLj9k5rzLmv2KSqf51ufB1bPnQHnpaz9XGh rmarkdown/docs/site_libs/bootstrap-3.3.5/css/sandstone.min.css
+## 
+ 2.76 MB / 4.70 MB [==================================================&gt;-----------------------------------]  58.80% 0s[2K
+added QmZ61SuqnYjJUMyLKh7hSVEGrTDoScnMvrRfcHHmAMnV6x rmarkdown/docs/site_libs/bootstrap-3.3.5/css/simplex.min.css
+## 
+ 2.89 MB / 4.70 MB [====================================================&gt;---------------------------------]  61.47% 0s[2K
+added QmewaMnU4fszHv6tT5yX5qtkwQKw5Vv6hYwNJPiL27L2w5 rmarkdown/docs/site_libs/bootstrap-3.3.5/css/spacelab.min.css
+## 
+ 3.01 MB / 4.70 MB [=======================================================&gt;------------------------------]  63.96% 0s[2K
+added QmXA9fk82UZjq6yhegPWK44wYDsgeB8MWPft3FiJ3k8HUf rmarkdown/docs/site_libs/bootstrap-3.3.5/css/united.min.css
+## 
+ 3.13 MB / 4.70 MB [=========================================================&gt;----------------------------]  66.57% 0s[2K
+added QmNjTwZK2t7cpuhj2AZdwD7XN7tx5JL1KT23zui1ka5wCJ rmarkdown/docs/site_libs/bootstrap-3.3.5/css/yeti.min.css
+## 
+ 3.15 MB / 4.70 MB [=========================================================&gt;----------------------------]  66.98% 0s[2K
+added QmWhoNhVUb9bcjuKLB259VYogJpPsJaAe8dern9LK95tVN rmarkdown/docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.eot
+## 
+ 3.25 MB / 4.70 MB [===========================================================&gt;--------------------------]  69.18% 0s[2K
+added QmbcbjLEC1aHy4j2qvtncevjenYwHjEF4qZ2kK5pRJzDLg rmarkdown/docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.svg
+## 
+ 3.30 MB / 4.70 MB [============================================================&gt;-------------------------]  70.10% 0s[2K
+added QmciDEkreBpY2S6Ktg1Zarbsx5K2DmHK59H261Bjr2fnuR rmarkdown/docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.ttf
+## 
+ 3.32 MB / 4.70 MB [============================================================&gt;-------------------------]  70.58% 0s[2K
+added QmaYEdLkMnEHVN8HZB2GGETottySZoHh3TnYZERke36PVr rmarkdown/docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff
+## 
+ 3.34 MB / 4.70 MB [=============================================================&gt;------------------------]  70.94% 0s[2K
+added QmUbUsBQbjJhm5iYba5jqibRr4A6gG3HVczSy5gs5PrMhY rmarkdown/docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff2
+## 
+ 3.40 MB / 4.70 MB [==============================================================&gt;-----------------------]  72.34% 0s[2K
+added QmfAkLCWYC5kNA2mizS46virb5PuHNbJnEE3chsWhJs9go rmarkdown/docs/site_libs/bootstrap-3.3.5/js/bootstrap.js
+## 
+ 3.44 MB / 4.70 MB [==============================================================&gt;-----------------------]  73.09% 0s[2K
+added QmV3Z6aMsqNBkQn3FJBQjyr1LJj1HLcDsBna1aVcJVccd9 rmarkdown/docs/site_libs/bootstrap-3.3.5/js/bootstrap.min.js
+## 
+ 3.44 MB / 4.70 MB [==============================================================&gt;-----------------------]  73.10% 0s[2K
+added QmVPCRWiZ6KyYt4fe5UYJAhQDH4qPDCiMiMfqApRrXtBLs rmarkdown/docs/site_libs/bootstrap-3.3.5/js/npm.js
+## 
+ 3.44 MB / 4.70 MB [==============================================================&gt;-----------------------]  73.15% 0s[2K
+added QmdysfHDojxzb8mYmJJRWs1fDpQJHKF58v3tvk8MZc7Buj rmarkdown/docs/site_libs/bootstrap-3.3.5/shim/html5shiv.min.js
+## 
+ 3.44 MB / 4.70 MB [==============================================================&gt;-----------------------]  73.24% 0s[2K
+added QmSzB8EjjU2BnwCnJhrrVuMMBi1LkKxTWU1VXBiY7CxHE7 rmarkdown/docs/site_libs/bootstrap-3.3.5/shim/respond.min.js
+## 
+ 3.45 MB / 4.70 MB [===============================================================&gt;----------------------]  73.39% 0s[2K
+added QmeLepMs45K7s3ms58a6P9qCXiwkzxWpTET86mfymaQsuy rmarkdown/docs/site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css
+## 
+ 3.56 MB / 4.70 MB [=================================================================&gt;--------------------]  75.65% 0s[2K
+added QmbNGLj9ynKnjdVcz7CgvVVvK31JScnfWwn3yVSWpofpUw rmarkdown/docs/site_libs/font-awesome-5.0.13/fonts/fa-brands-400.ttf
+## 
+ 3.59 MB / 4.70 MB [=================================================================&gt;--------------------]  76.28% 0s[2K
+added QmS1zPHJ3ywDdKQWQTUjqpuRS3cMEHFmGbx1vKwaYtSTfy rmarkdown/docs/site_libs/font-awesome-5.0.13/fonts/fa-regular-400.ttf
+## 
+ 3.71 MB / 4.70 MB [===================================================================&gt;------------------]  78.98% 0s[2K
+added QmUQuN3PS5zK5fvoQLm6PvW5XZuo9Wor4fd2oyuSawZ1UC rmarkdown/docs/site_libs/font-awesome-5.0.13/fonts/fa-solid-900.ttf
+## 
+ 3.73 MB / 4.70 MB [====================================================================&gt;-----------------]  79.29% 0s[2K
+added QmVvAQnwzuvNipLc8VKVuazqckZtvjNthEoz65YRb3ANMe rmarkdown/docs/site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js
+## 
+ 3.98 MB / 4.70 MB [========================================================================&gt;-------------]  84.61% 0s
+ 4.23 MB / 4.70 MB [=============================================================================&gt;--------]  89.92% 0s
+ 4.48 MB / 4.70 MB [=================================================================================&gt;----]  95.24% 0s
+ 4.49 MB / 4.70 MB [==================================================================================&gt;---]  95.51% 0s[2K
+added QmZ7CEFySN2umzR6ipNMFgZrnswnxbUk55xVQiZj1Vdpko rmarkdown/docs/site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js
+## 
+ 4.49 MB / 4.70 MB [==================================================================================&gt;---]  95.51% 0s[2K
+added QmWDirsxsYRxa3UGMJTKtSG9u2vW1fgd8i5G2YwtcsfypU rmarkdown/docs/site_libs/highlightjs-9.12.0/default.css
+## 
+ 4.54 MB / 4.70 MB [===================================================================================&gt;--]  96.55% 0s[2K
+added Qmf6S4BXUqgL9VBcBjgANfKGPHpnRfoDiZtEF9EkhTiLTN rmarkdown/docs/site_libs/highlightjs-9.12.0/highlight.js
+## 
+ 4.54 MB / 4.70 MB [===================================================================================&gt;--]  96.56% 0s[2K
+added QmRCdsGsb3q3uUWihRnDiaTF7QBzcsyVc1NigxSjJtUSot rmarkdown/docs/site_libs/highlightjs-9.12.0/textmate.css
+## 
+ 4.63 MB / 4.70 MB [====================================================================================&gt;-]  98.50% 0s[2K
+added QmU6GUT8De1mm8nTmZ7FBUdfmDe5BVuGNRzKcYYNb8rujW rmarkdown/docs/site_libs/jquery-1.11.3/jquery.min.js
+## 
+ 4.63 MB / 4.70 MB [====================================================================================&gt;-]  98.54% 0s[2K
+added QmRW3qTReTWGQXEgEPRWMePCmcp3sGDgk3QHM7Pt2ffPtC rmarkdown/docs/site_libs/navigation-1.1/codefolding.js
+## 
+ 4.63 MB / 4.70 MB [====================================================================================&gt;-]  98.55% 0s[2K
+added QmZYPt3MFQm8p61LYZXeKe9Zk2rb8R2MMBk4ofbfkZUs3L rmarkdown/docs/site_libs/navigation-1.1/sourceembed.js
+## 
+ 4.64 MB / 4.70 MB [====================================================================================&gt;-]  98.63% 0s[2K
+added QmPmiRYo3nfxCey6etWfTjGtpH96QxsX7cAnbbAjQaZgcr rmarkdown/docs/site_libs/navigation-1.1/tabsets.js
+## 
+ 4.64 MB / 4.70 MB [====================================================================================&gt;-]  98.67% 0s[2K
+added QmebkKCDVVTEKSbsVjxZBXPeKnTEdKFNwNZmvBFVB2ECVr rmarkdown/ideas.Rmd
+## 
+ 4.64 MB / 4.70 MB [====================================================================================&gt;-]  98.67% 0s[2K
+added QmQEnffKwGXeDesF6fpvkfSpF15a2uAbpmxjPrDLhPKCx6 rmarkdown/index.Rmd
+## [2K
+added QmPiEDjUcjjZ7oWMQFQn8uTMbHAG67jDy9gaUCWZ8aqKHS rmarkdown/docs/site_libs/bootstrap-3.3.5/css/fonts
+## [2K
+added QmQjWKdgzCZRCK7w1b5fLYpMfYXbDAeEVAxYrCeWo47tyf rmarkdown/docs/site_libs/bootstrap-3.3.5/css
+## [2K
+added Qmb3fJpXVGvUnNeRLC3P5sTXMzjpf5zq4tKt9XjhtYFf1k rmarkdown/docs/site_libs/bootstrap-3.3.5/fonts
+## [2K
+added Qmay2p3befaZVVnFwiXvmwQruknxTq1LVjBgyocEfLvjR7 rmarkdown/docs/site_libs/bootstrap-3.3.5/js
+## [2K
+added QmbNAqayKXQV4X2pvQ9XCm3oBsuHHzJ2R6wghL1MBTa6FZ rmarkdown/docs/site_libs/bootstrap-3.3.5/shim
+## [2K
+added QmZFc3V4AAPLTxPtDZUREVWQsdnXyzSiBZwzyFoLh8Fr8U rmarkdown/docs/site_libs/bootstrap-3.3.5
+## [2K
+added Qmc3Z6UWHMm8wx4VXYsjYPhxMiTQRGHKSZwenDsxNN8bEr rmarkdown/docs/site_libs/font-awesome-5.0.13/css
+## [2K
+added QmeV97kuLzZQbTtyYUhGze3G8thw8ZGQZQradoLYsFcX9D rmarkdown/docs/site_libs/font-awesome-5.0.13/fonts
+## [2K
+added QmSFX5uLaAbJw1UhxRp7XWf6RWfFH2N3YHb2QZFf9ExeXL rmarkdown/docs/site_libs/font-awesome-5.0.13/js
+## [2K
+added QmNx1qtDpKRWeWbgb6UJBnUWnfR1BoPsFbJgTp3K8pcyJa rmarkdown/docs/site_libs/font-awesome-5.0.13
+## [2K
+added QmT26GQY1JvCPnUMEk33ig8nGGYo4SzgtcNBM88DMPLNg6 rmarkdown/docs/site_libs/highlightjs-9.12.0
+## [2K
+added QmQWqiniho311P6pCF6GyDyaj3cDVKmUCzdhRgzUxHX7b9 rmarkdown/docs/site_libs/jquery-1.11.3
+## [2K
+added QmaWMUXpZoP3fc7wssPs6sD2S7W3rqMZZ2hHNWJqycMG1x rmarkdown/docs/site_libs/navigation-1.1
+## [2K
+added QmdBsYP4SXyNqRoM1b2ENWiGJfyNPoWZb6eLguHXCrfDcH rmarkdown/docs/site_libs
+## [2K
+added Qmak1cNmN8R2beVARpgCyEoezg8dThEUMpwwSN5KFrGzcu rmarkdown/docs
+## [2K
+added QmRG9pivERx3YEzHibUse2gxMwJc4fbgAvmF39jXdpVY5d rmarkdown</code></pre>
+<div id="dapp-university-tutorial" class="section level3">
+<h3>Dapp University Tutorial</h3>
+<p><a href="https://www.youtube.com/watch?v=ADoRVVOSpI8&amp;list=PLS5SEs8ZftgWggD3tKfgwsIPXuIhorXZk" class="uri">https://www.youtube.com/watch?v=ADoRVVOSpI8&amp;list=PLS5SEs8ZftgWggD3tKfgwsIPXuIhorXZk</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ADoRVVOSpI8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+</div>
+<div id="graphql" class="section level3">
+<h3>Graphql</h3>
+<p><a href="https://graphql.org/">Reference</a></p>
+</div>
+<div id="the-graph.com" class="section level3">
+<h3>The Graph.com</h3>
+<p><a href="https://thegraph.com/">Reference</a></p>
+</div>
+</div>
+<div id="blockstacks" class="section level2">
+<h2>Blockstacks</h2>
+<p><a href="blockstacks.org">Reference</a></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=oyvg-h0obFw&amp;t=5s">Tutorial 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=FP_kqWGzVWk&amp;t=0s&amp;index=137&amp;list=WL">Tutorial 2</a></li>
+</ul>
+</div>
+<div id="essentia" class="section level2">
+<h2>Essentia</h2>
+<p><a href="https://essentia.one/">Reference</a></p>
+</div>
+<div id="interledger" class="section level2">
+<h2>Interledger</h2>
+<p><a href="https://interledger.org/">Reference</a></p>
+</div>
+<div id="hyperledger" class="section level2">
+<h2>Hyperledger</h2>
+<p><a href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS171x+3T2017/course/">edx</a></p>
+</div>
+</div>
+<div id="science" class="section level1">
+<h1>Science</h1>
+<div id="gauge-theory" class="section level2">
+<h2>Gauge Theory</h2>
+<p>Gene expression and field theory</p>
+<div id="rieman-geometry-and-curvature" class="section level3">
+<h3>Rieman Geometry and Curvature</h3>
+<ul>
+<li><a href="http://pi.math.cornell.edu/~sjamaar/manifolds/manifold.pdf">Manifolds</a></li>
+<li><a href="http://www.matematik.lu.se/matematiklu/personal/sigma/Riemann.pdf">Riemann Materials</a></li>
+<li><a href="http://www2.math.uu.se/~svante/papers/sjN15.pdf">Riemann Geometry Examples</a></li>
+</ul>
+</div>
+</div>
+<div id="path-integrals-evolutionary-qtl" class="section level2">
+<h2>Path Integrals evolutionary QTL?</h2>
+</div>
+<div id="heisenberg-uncertaiy-perterb-seq" class="section level2">
+<h2>Heisenberg Uncertaiy Perterb-seq</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ZcpwnozMh2U&amp;t=25m">Reference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Uncertainty_principle">Wiki</a></li>
+</ul>
+<p>Red and Green boxes as SNP</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

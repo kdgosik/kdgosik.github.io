@@ -5,10 +5,12 @@ navbar:
   title: My Site
   left:
   - text: Home
-    icon: fa-home
+    icon: fa fa-home
     href: index.html
   - text: Monero Miner
+    icon: fa fa-money
     href: monero_miner.html
   - text: Tetris
+    icon: fa fa-gamepad
     href: tetris.html
 ---
